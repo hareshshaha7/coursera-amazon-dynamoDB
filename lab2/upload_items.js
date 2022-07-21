@@ -15,13 +15,13 @@ var
     AWS = require("aws-sdk"),
     DDB = new AWS.DynamoDB({
         apiVersion: "2012-08-10",
-        region: "<FMI>"
+        region: "us-east-1"
     });
 
 (function uploadItemstoDynamoDB(){
     var
         dragon_1 = {
-            <FMI>:{
+            Item:{
                 "dragon_name":{
                     S: "sparky"
                 },
@@ -38,15 +38,15 @@ var
                     N: "7" 
                 }
             },
-            <FMI>: "TOTAL",
-            <FMI>: "dragons"
+            ReturnConsumedCapacity: "TOTAL",
+            TableName: "dragons"
         };
      DDB.putItem(dragon_1, function(err, data){
          console.log(err, data);
      });
      var
         dragon_2 = {
-            <FMI>:{
+            Item:{
                 "dragon_name":{
                     S: "tallie"
                 },
@@ -63,10 +63,10 @@ var
                     N: "10"
                 } 
             },
-            <FMI>: "TOTAL",
-            <FMI>: "dragons"
+            ReturnConsumedCapacity: "TOTAL",
+            TableName: "dragons"
         };
-     DDB.<FMI>(dragon_2, function(err, data){
+     DDB.putItem(dragon_2, function(err, data){
          console.log(err, data);
      });
 })();

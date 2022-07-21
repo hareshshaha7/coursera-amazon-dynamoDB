@@ -39,7 +39,7 @@ var
         region: "us-east-1"
     }),
     FS = require("fs"),
-    bucket_name_str = "<FMI>";
+    bucket_name_str = "shahah-dev-test";
 
 
 function uploadItemAsBinary(key_name_str, content_type_str, bin){

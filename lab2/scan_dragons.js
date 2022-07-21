@@ -19,17 +19,17 @@ exports.handler = function(event, context, callback){
 
 var 
     AWS = require("aws-sdk"),                            
-    DDB = new AWS.<FMI>({
+    DDB = new AWS.DynamoDB({
         apiVersion: "2012-08-10",
-        region: "<FMI>"
+        region: "us-east-1"
     });                                                   
 
 function scanTable(cb){
      var 
         params = {
-            <FMI>: "<FMI>"
+            TableName: "dragons"
         };
-     DDB.<FMI>(params, function(err, data){
+     DDB.scan(params, function(err, data){
          if(err){
              throw err;
          }
