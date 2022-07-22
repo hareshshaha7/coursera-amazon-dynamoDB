@@ -22,7 +22,7 @@ function createTheDragonStatsTable(){
     var 
         params = {
             AttributeDefinitions: [{
-                AttributeName: "<FMI>", 
+                AttributeName: "dragon_name",
                 AttributeType: "S"
             }], 
             KeySchema: [{
@@ -32,13 +32,13 @@ function createTheDragonStatsTable(){
             BillingMode: "PAY_PER_REQUEST",
             TableName: "dragon_stats"
         };
-     return DDB.<FMI>(params).promise();
+     return DDB.createTable(params).promise();
 }
 function createTheDragonCurrentPowerTable(){
     var 
         params = {
             AttributeDefinitions: [{
-                AttributeName: "<FMI>", 
+                AttributeName: "game_id",
                 AttributeType: "S"
             }], 
             KeySchema: [{
@@ -48,13 +48,13 @@ function createTheDragonCurrentPowerTable(){
             BillingMode: "PAY_PER_REQUEST",
             TableName: "dragon_current_power"
         };
-    return DDB.<FMI>(params).promise();
+    return DDB.createTable(params).promise();
 }
 function createTheDragonBonusAttackTable(){
     var 
         params = {
             AttributeDefinitions: [{
-                AttributeName: "<FMI>", 
+                AttributeName: "breath_attack",
                 AttributeType: "S"
             },{
                 AttributeName: "range", 
@@ -70,7 +70,7 @@ function createTheDragonBonusAttackTable(){
             BillingMode: "PAY_PER_REQUEST",
             TableName: "dragon_bonus_attack"
         };
-    return DDB.<FMI>(params).promise();
+    return DDB.createTable(params).promise();
 }
 function createTheDragonFamilyTable(){
     var 
@@ -86,7 +86,7 @@ function createTheDragonFamilyTable(){
             BillingMode: "PAY_PER_REQUEST",
             TableName: "dragon_family"
         };
-    return DDB.<FMI>(params).promise();
+    return DDB.createTable(params).promise();
 }
 
 

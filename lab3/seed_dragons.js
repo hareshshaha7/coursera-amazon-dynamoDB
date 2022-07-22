@@ -66,7 +66,7 @@ function pushToDragonStatsTable(){
     }
     params = {
         RequestItems: {
-            "<FMI>": dragon_formatted_arr.reverse()
+            "dragon_stats": dragon_formatted_arr.reverse()
         }
     };
     return DDB.batchWriteItem(params).promise();
@@ -102,10 +102,10 @@ function pushToDragonCurrentPowerTable(){
     }
     params = {
         RequestItems: {
-            "DragonCurrentPowerTable": dragon_formatted_arr.reverse()
+            "dragon_current_power": dragon_formatted_arr.reverse()
         }
     };
-    return DDB.<FMI>(params).promise();
+    return DDB.batchWriteItem(params).promise();
 }
 function pushToDragonBonusAttackTable(){
     var 
@@ -138,7 +138,7 @@ function pushToDragonBonusAttackTable(){
     }
     params = {
         RequestItems: {
-            "<FMI>": dragon_formatted_arr.reverse()
+            "dragon_bonus_attack": dragon_formatted_arr.reverse()
         }
     };
     return DDB.batchWriteItem(params).promise();
@@ -178,10 +178,10 @@ function pushToDragonFamilyTable(){
     }
     params = {
         RequestItems: {
-            "DragonFamilyTable": dragon_formatted_arr.reverse()
+            "dragon_family": dragon_formatted_arr.reverse()
         }
     };
-    return DDB.<FMI>(params).promise();
+    return DDB.batchWriteItem(params).promise();
 }
 
 (async function seed(){

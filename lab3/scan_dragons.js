@@ -27,7 +27,7 @@ var
     AWS = require("aws-sdk"),                            
     DDB = new AWS.DynamoDB({
         apiVersion: "2012-08-10",
-        region: "<FMI>"
+        region: "us-east-1"
     });    
 
 function justThisDragon(dragon_name_str, cb){
@@ -41,7 +41,7 @@ function justThisDragon(dragon_name_str, cb){
             FilterExpression: "dragon_name = :dragon_name",
             TableName: "dragon_stats"
         };
-     DDB.<FMI>(params, function(err, data){
+     DDB.scan(params, function(err, data){
          if(err){
              throw err;
          }
@@ -55,7 +55,7 @@ function justThisDragon(dragon_name_str, cb){
 function scanTable(cb){
      var 
         params = {
-            TableName: "<FMI>",
+            TableName: "dragon_stats",
             ExpressionAttributeNames: {
                 "#family": "family"
             },
@@ -73,7 +73,7 @@ function scanTable(cb){
 if(process.argv[2] === "test"){
     if(process.argv[3] && process.argv[3] !== "All"){
         console.log("Local test for a dragon called " + process.argv[3]);
-        justThisDragon(<FMI></FMI>[3], console.log);
+        justThisDragon(process.argv[3], console.log);
     }else{
         console.log("Local test for all dragons");
         scanTable(console.log);
